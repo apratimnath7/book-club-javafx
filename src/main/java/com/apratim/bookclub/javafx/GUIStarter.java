@@ -15,6 +15,7 @@ public class GUIStarter extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		// Default code - TODO
 		Button button = new Button("Say, Hello World");
 
 		button.setOnAction(eventHandler -> {
