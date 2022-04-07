@@ -1,9 +1,10 @@
 package com.apratim.bookclub.javafx;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -12,21 +13,20 @@ import javafx.stage.Stage;
  *
  */
 public class GUIStarter extends Application {
+	Stage window;
+	Scene startScene;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// Default code - TODO
-		Button button = new Button("Say, Hello World");
+		window = primaryStage;
 
-		button.setOnAction(eventHandler -> {
-			System.out.println("Hello World");
-		});
-		StackPane root = new StackPane();
-		root.getChildren().add(button);
-		Scene scene = new Scene(root);
-		primaryStage.setScene(scene);
-		primaryStage.setTitle("New JavaFX Application");
-		primaryStage.show();
+		Parent root = FXMLLoader.load(getClass().getResource("design/EntryPoint.fxml"));
+		startScene = new Scene(root);
+
+		window.setScene(startScene);
+		window.setTitle("New JavaFX Application");
+		window.getIcons().add(new Image("https://www.iconpacks.net/icons/2/free-opened-book-icon-3169-thumb.png"));
+		window.show();
 	}
 
 	public static void main(String[] args) {
